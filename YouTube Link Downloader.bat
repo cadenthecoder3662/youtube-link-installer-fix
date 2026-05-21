@@ -5,11 +5,10 @@ echo   YouTube Link Downloader
 echo ================================
 echo.
 if not exist yt-dlp.exe (
-    echo ERROR: yt-dlp.exe not found in Downloads folder!
-    echo Please run INSTALL FIRST.bat before using this.
+    echo yt-dlp.exe not found! Downloading it now...
+    curl -L "https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe" -o yt-dlp.exe
+    echo Done!
     echo.
-    pause
-    exit
 )
 echo Type the number of the file type you want:
 echo.
@@ -20,23 +19,21 @@ echo.
 set /p choice="Type a number (1, 2, or 3): "
 echo.
 if not "%choice%"=="1" if not "%choice%"=="2" if not "%choice%"=="3" (
-    echo Invalid choice! Please type 1, 2, or 3.
-    echo.
+    echo Invalid choice! Type 1, 2, or 3 only.
     pause
     exit
 )
-set /p link="Now paste your YouTube link: "
+set /p link="Paste your YouTube link here: "
 echo.
 if "%link%"=="" (
-    echo No link entered!
+    echo You did not paste a link!
     pause
     exit
 )
 echo Downloading...
 echo.
-if "%choice%"=="1" yt-dlp.exe -f bestaudio "%link%"
-if "%choice%"=="2" yt-dlp.exe -x --audio-format mp3 "%link%"
-if "%choice%"=="3" yt-dlp.exe -f mp4 "%link%"
+if "%choice%"=="1" yt-dlp.exe -f bestaudio "%link%" && echo SUCCESS! File saved to Downloads. || echo FAILED! Check your link and try again.
+if "%choice%"=="2" yt-dlp.exe -x --audio-format mp3 "%link%" && echo SUCCESS! File saved to Downloads. || echo FAILED! Check your link and try again.
+if "%choice%"=="3" yt-dlp.exe -f mp4 "%link%" && echo SUCCESS! File saved to Downloads. || echo FAILED! Check your link and try again.
 echo.
-echo Done! Check your Downloads folder.
 pause
