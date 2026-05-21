@@ -4,6 +4,13 @@ echo ================================
 echo   YouTube Link Downloader
 echo ================================
 echo.
+if not exist yt-dlp.exe (
+    echo ERROR: yt-dlp.exe not found in Downloads folder!
+    echo Please run INSTALL FIRST.bat before using this.
+    echo.
+    pause
+    exit
+)
 echo Type the number of the file type you want:
 echo.
 echo 1. Best audio (webm/m4a)
