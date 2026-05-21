@@ -5,8 +5,17 @@ echo   YouTube Link Downloader
 echo ================================
 echo.
 if not exist yt-dlp.exe (
-    echo yt-dlp.exe not found! Downloading it now...
+    echo Downloading yt-dlp...
     curl -L "https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe" -o yt-dlp.exe
+    echo Done!
+    echo.
+)
+if not exist ffmpeg.exe (
+    echo Downloading ffmpeg...
+    curl -L "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip" -o ffmpeg.zip
+    echo Extracting...
+    tar -xf ffmpeg.zip --strip-components=2 -C "%USERPROFILE%\Downloads" "*/bin/ffmpeg.exe"
+    del ffmpeg.zip
     echo Done!
     echo.
 )
@@ -32,8 +41,9 @@ if "%link%"=="" (
 )
 echo Downloading...
 echo.
-if "%choice%"=="1" yt-dlp.exe -f bestaudio "%link%" && echo SUCCESS! File saved to Downloads. || echo FAILED! Check your link and try again.
-if "%choice%"=="2" yt-dlp.exe -x --audio-format mp3 "%link%" && echo SUCCESS! File saved to Downloads. || echo FAILED! Check your link and try again.
-if "%choice%"=="3" yt-dlp.exe -f mp4 "%link%" && echo SUCCESS! File saved to Downloads. || echo FAILED! Check your link and try again.
+if "%choice%"=="1" yt-dlp.exe --ffmpeg-location . -f bestaudio "%link%" && echo SUCCESS! || echo FAILED!
+if "%choice%"=="2" yt-dlp.exe --ffmpeg-location . -x --audio-format mp3 "%link%" && echo SUCCESS! || echo FAILED!
+if "%choice%"=="3" yt-dlp.exe --ffmpeg-location . -f mp4 "%link%" && echo SUCCESS! || echo FAILED!
 echo.
+echo Check your Downloads folder!
 pause
